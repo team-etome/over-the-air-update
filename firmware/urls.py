@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import check_firmware
+from .views import CheckFirmwareView
 
 urlpatterns = [
-    path('check-firmware/', check_firmware, name='check-firmware'),
+    path('api/check-firmware/', CheckFirmwareView.as_view(), name='check-firmware'),
 ]

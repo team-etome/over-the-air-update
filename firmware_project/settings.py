@@ -78,12 +78,22 @@ WSGI_APPLICATION = 'firmware_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
+
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ota',
+        'USER':'postgres',
+        'PASSWORD':'123',
+        'HOST':'localhost',
+        'port':'5432' 
     }
 }
+
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -142,4 +152,4 @@ AWS_S3_REGION_NAME = 'us-east-1'
 AWS_QUERYSTRING_AUTH = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-from storages.backends.s3boto3 import S3Boto3Storage
+

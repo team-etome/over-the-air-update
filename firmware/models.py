@@ -5,12 +5,13 @@ from storages.backends.s3boto3 import S3Boto3Storage
 s3_storage = S3Boto3Storage()
 
 class Firmware(models.Model):
-    version = models.CharField(max_length=50)
-    description = models.TextField()
-    file = models.FileField(storage=s3_storage, upload_to='firmware/') 
-    file_size = models.BigIntegerField(blank=True, null=True)
-    is_latest = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+    
+    version            = models.CharField(max_length=50)
+    description        = models.TextField()
+    file               = models.FileField(storage=s3_storage, upload_to='firmware/') 
+    file_size          = models.BigIntegerField(blank=True, null=True)
+    is_latest          = models.BooleanField(default=False)
+    created_at         = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         if self.is_latest:
