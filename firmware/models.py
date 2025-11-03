@@ -12,6 +12,7 @@ class Firmware(models.Model):
     file_size          = models.BigIntegerField(blank=True, null=True)
     is_latest          = models.BooleanField(default=False)
     created_at         = models.DateTimeField(auto_now_add=True)
+    device_version     = models.CharField(blank=True , null=True)
 
     def save(self, *args, **kwargs):
         if self.is_latest:
